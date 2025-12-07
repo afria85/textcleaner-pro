@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextCleaner Pro | Professional Text Processing Tool</title>
+    <meta name="description" content="Professional tool for cleaning, formatting, and processing text data with batch operations and multiple format support.">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Icons -->
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- App Container -->
+    <div id="app" class="app-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background (opsional, bisa dihapus jika ingin transparan) -->
+                        <rect width="100" height="100" rx="20" fill="#4F46E5"/>
+
+                        <!-- Grup Ikon Utama -->
+                        <g transform="translate(10, 10)">
+                            
+                            <!-- Elemen 1: Representasi Teks/Data yang Berantakan (Garis-garis Miring) -->
+                            <rect x="25" y="15" width="45" height="5" rx="2.5" fill="url(#paint0_linear)"/>
+                            <rect x="20" y="25" width="55" height="5" rx="2.5" fill="url(#paint0_linear)"/>
+                            <rect x="30" y="35" width="40" height="5" rx="2.5" fill="url(#paint0_linear)"/>
+                            
+                            <!-- Elemen 2: Simbol Koreksi/Pembersihan (Panah Berbalik Arah) -->
+                            <path d="M 45 50 L 55 50 M 50 45 L 50 55" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M 50 45 L 50 55 M 45 50 L 55 50" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+
+                            <!-- Elemen 3: Representasi Teks/Data yang Sudah Bersih (Garis-garis Rapi dan Terstruktur) -->
+                            <!-- Garis 1 -->
+                            <rect x="20" y="60" width="60" height="5" rx="2.5" fill="white"/>
+                            <!-- Garis 2 -->
+                            <rect x="20" y="70" width="50" height="5" rx="2.5" fill="white"/>
+                            <!-- Garis 3 -->
+                            <rect x="20" y="80" width="60" height="5" rx="2.5" fill="white"/>
+                            
+                            <!-- Marker Ceklis/Validasi di sebelah kanan -->
+                            <path d="M 75 70 L 80 75 L 90 65" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            
+                        </g>
+
+                        <!-- Definisi Gradient (untuk efek modern) -->
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="20" y1="27.5" x2="75" y2="27.5" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFFFFF" stop-opacity="0.8"/>
+                                <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <h1 class="logo-text">TextCleaner <span class="pro-badge">PRO</span></h1>
+                </div>
+                
+                <nav class="main-nav">
+                    <button class="nav-btn" data-action="toggle-sidebar">
+                        <span class="btn-icon">?</span>
+                        <span class="btn-text">Tools</span>
+                    </button>
+                    <button class="nav-btn" data-action="show-history">
+                        <span class="btn-icon">??</span>
+                        <span class="btn-text">History</span>
+                    </button>
+                    <button class="nav-btn" data-action="open-settings">
+                        <span class="btn-icon">??</span>
+                        <span class="btn-text">Settings</span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="section-title">Text Cleaners</h3>
+                    <div class="cleaner-list" id="cleaner-list">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="section-title">Tools</h3>
+                    <button class="tool-btn" data-tool="regex">Regex Tool</button>
+                    <button class="tool-btn" data-tool="batch">Batch Process</button>
+                    <button class="tool-btn" data-tool="anonymize">Anonymize Data</button>
+                </div>
+            </aside>
+
+            <!-- Workspace -->
+            <section class="workspace">
+                <div class="workspace-header">
+                    <div class="input-controls">
+                        <div class="btn-group">
+                            <button class="btn btn-icon" data-action="load-file" title="Load file">
+                                ??
+                            </button>
+                            <button class="btn btn-icon" data-action="paste-clipboard" title="Paste">
+                                ??
+                            </button>
+                            <button class="btn btn-icon" data-action="clear-input" title="Clear">
+                                ???
+                            </button>
+                        </div>
+                        
+                        <div class="format-selector">
+                            <select id="format-select" class="select">
+                                <option value="auto">Auto Detect</option>
+                                <option value="plain">Plain Text</option>
+                                <option value="csv">CSV</option>
+                                <option value="json">JSON</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input/Output Areas -->
+                <div class="editor-container">
+                    <div class="editor-section">
+                        <div class="editor-header">
+                            <h4>Input</h4>
+                            <div class="editor-stats">
+                                <span data-stat="chars">0 chars</span>
+                                <span data-stat="words">0 words</span>
+                                <span data-stat="lines">0 lines</span>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="input-text" 
+                            class="text-editor" 
+                            placeholder="Paste your text here or load a file..."
+                            spellcheck="false"
+                            data-gramm="false"
+                        ></textarea>
+                    </div>
+
+                    <div class="editor-section">
+                        <div class="editor-header">
+                            <h4>Output</h4>
+                            <div class="editor-actions">
+                                <button class="btn btn-sm" data-action="copy-output">Copy</button>
+                                <button class="btn btn-sm" data-action="download-output">Download</button>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="output-text" 
+                            class="text-editor" 
+                            readonly
+                            placeholder="Processed text will appear here..."
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="action-bar">
+                    <button id="process-btn" class="btn btn-primary btn-lg">
+                        Process Text
+                    </button>
+                    
+                    <div class="process-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="auto-process">
+                            Auto-process on change
+                        </label>
+                        
+                        <label class="checkbox">
+                            <input type="checkbox" id="preserve-formatting">
+                            Preserve formatting
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="app-stats">
+                    <span>Processed: <strong id="total-processed">0</strong> items</span>
+                    <span>Time saved: <strong id="time-saved">0</strong> hours</span>
+                </div>
+                
+                <div class="footer-actions">
+                    <button class="btn btn-sm" data-action="export-stats">Export Stats</button>
+                    <button class="btn btn-sm" data-action="reset-app">Reset</button>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modals -->
+        <div id="modal-container"></div>
+        
+        <!-- Notifications -->
+        <div id="notification-container"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
