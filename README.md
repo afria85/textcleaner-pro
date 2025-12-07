@@ -71,23 +71,58 @@ Dirancang dengan **arsitektur modular**, **performa tinggi**, dan **siap dijalan
 
 ```text
 textcleaner-pro/
-├── src/                # Frontend application
-│   ├── css/            # Styles & themes
-│   ├── js/             # Core application logic
-│   │   ├── modules/    # Modular architecture
-│   │   ├── cleaners/   # Text cleaners
-│   │   ├── services/  # App services
-│   │   ├── storage/   # Persistence layer
-│   │   └── utils/     # Utilities
-│   ├── locales/        # i18n translations
-│   └── assets/         # Static assets
-├── tests/              # Unit, integration & e2e tests
-├── docs/               # Technical & user documentation
-├── plugins/            # Plugin system
-├── server/             # Optional backend services
-├── build/              # Build & deployment scripts
-├── public/             # Static public files
-└── configuration files # ESLint, Prettier, Jest, Docker
+├── index.html
+├── manifest.json
+├── sw.js
+├── README.md
+├── package.json
+├── package-lock.json
+├── css/
+│   ├── main.css
+│   ├── components.css
+│   └── responsive.css
+├── js/
+│   ├── app.js
+│   ├── config.js
+│   ├── modules/
+│   │   ├── core/
+│   │   │   ├── app-core.js
+│   │   │   ├── state.js
+│   │   │   └── lifecycle.js
+│   │   ├── cleaners/
+│   │   │   ├── index.js
+│   │   │   ├── csv-cleaner.js
+│   │   │   ├── json-cleaner.js
+│   │   │   ├── html-cleaner.js
+│   │   │   ├── markdown-cleaner.js
+│   │   │   ├── sql-cleaner.js
+│   │   │   └── log-cleaner.js
+│   │   ├── features/
+│   │   │   ├── batch-processor.js
+│   │   │   ├── regex-tool.js
+│   │   │   ├── anonymizer.js
+│   │   │   ├── statistics.js
+│   │   │   └── history.js
+│   │   ├── ui/
+│   │   │   ├── editor.js
+│   │   │   ├── sidebar.js
+│   │   │   ├── toolbar.js
+│   │   │   └── notifications.js
+│   │   ├── storage/
+│   │   │   ├── storage.js
+│   │   │   └── autosave.js
+│   │   └── utils/
+│   │       ├── debounce.js
+│   │       ├── chunker.js
+│   │       ├── file-utils.js
+│   │       └── validators.js
+├── assets/
+│   ├── icons/
+│   │   ├── icon-192.png
+│   │   └── icon-512.png
+│   └── images/
+└── dist/
+
 ```
 
 📌 **Catatan:** Struktur lengkap dijelaskan di folder `/docs`.
